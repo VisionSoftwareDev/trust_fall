@@ -34,17 +34,19 @@ class TrustFall {
   // Check if device violates any of the above
   static Future<bool> get isTrustFall async {
     final bool isJailBroken = await _channel.invokeMethod('isJailBroken');
+    return isJailBroken;
     //final bool canMockLocation = await _channel.invokeMethod('canMockLocation');
-    final bool isRealDevice = await _channel.invokeMethod('isRealDevice');
-    if (Platform.isAndroid) {
+    //final bool isRealDevice = await _channel.invokeMethod('isRealDevice');
+    /*if (Platform.isAndroid) {
       final bool isOnExternalStorage =
           await _channel.invokeMethod('isOnExternalStorage');
-      return isJailBroken ||
+      return isJailBroken /* ||
           //canMockLocation ||
           !isRealDevice ||
-          isOnExternalStorage;
+          isOnExternalStorage*/
+          ;
     } else {
-      return isJailBroken /*|| canMockLocation*/ || !isRealDevice;
-    }
+      return isJailBroken /*|| canMockLocation || !isRealDevice*/;
+    }*/
   }
 }
